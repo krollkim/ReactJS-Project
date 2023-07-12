@@ -20,7 +20,6 @@ const CardComponent = ({ card, onDelete, onLike, onEdit }) => {
   return (
  <>
 
- {/* fourth card, with props injaction and loop */}
   <Box sx={{display: "flex", justifyContent: "center", mt: 10, mb: 20}}>
     <Card sx={{minWidth: 300, maxWidth: 350}} raised>
         <CardActionArea

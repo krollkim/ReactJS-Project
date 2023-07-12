@@ -10,8 +10,7 @@ import {
   getMyCards,
   createCard, 
   editCard, 
-  // deleteCard,
-    
+  deleteCard,  
 } from "../services/cardServices";
 
 
@@ -44,7 +43,6 @@ const useCards = () => {
 
   const handleGetCard = async cardId => {
     try {
-  
       setPending(true);
       const card = await getCard(cardId);
       requestStatus(false, null, null, card);
@@ -76,27 +74,27 @@ const useCards = () => {
     }
   }, [setSnack, navigate]);
 
-  const handleUpdateCard = async (cardId, cardFromClient = {}) => {
+  const handleUpdateCard = async cardId => {
     try {
       setPending(true);
-      const normalCard = normalizeCard(cardFromClient);
-      const card = await editCard(normalCard, cardId);
+      const card = await editCard(cardId);
       requestStatus(false, null, null, card);
     } catch (error) {
       requestStatus(false, error, null, null);
     }
   };
 
-//   const handleDeleteCard
-//  = async (cardId = "") => {
-//     try {
-//       setPending(true);
-//       const card = await deleteCard(cardId);
-//       requestStatus(false, null, null, card);
-//     } catch (error) {
-//       requestStatus(false, error, null, null);
-//     }
-//   };
+  const handleDeleteCard = async cardId => {
+    try {
+      setPending(true);
+      const card = await deleteCard(cardId);
+      requestStatus(false, null, null, card);
+      
+    } catch (error) {
+      requestStatus(false, error, null, null);
+    }
+    if(card) navigate(ROUTES.CARDS);
+  };
 
   return {
     card,
@@ -108,7 +106,7 @@ const useCards = () => {
     handleGetMyCards,
     handleCreateCard,
     handleUpdateCard,
-    // handleDeleteCard,
+    handleDeleteCard,
   };
 };
 

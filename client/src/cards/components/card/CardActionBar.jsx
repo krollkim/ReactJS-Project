@@ -13,7 +13,7 @@ import { useUser } from '../../../users/providers/UserProvider';
 import { useNavigate } from "react-router-dom";
 import ROUTES from '../../../routes/routesModel';
 
-const CardActionBar = ({cardId, onDelete, onLike, onEdit, userId }) => {
+const CardActionBar = ({cardId, onDelete, onLike, userId }) => {
   const { user } = useUser();
   const navigate = useNavigate();
   return (
@@ -26,7 +26,7 @@ const CardActionBar = ({cardId, onDelete, onLike, onEdit, userId }) => {
    </IconButton>
     )}
     { user && user?._id === userId && (
-    <IconButton aria-label='edit' onClick={()=> navigate(ROUTES.EDIT_CARD)}>
+    <IconButton aria-label='edit' onClick={()=> navigate(`${ROUTES.EDIT_CARD}/${cardId}`)}>
       <CreateIcon/>
     </IconButton>
     )}

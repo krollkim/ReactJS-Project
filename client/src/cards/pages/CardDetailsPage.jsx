@@ -31,14 +31,6 @@ const CardDetailsPage = () => {
           alignItems: "center",
         }}
       >
-        {/* {pending && <Spinner />}
-        {error && <Error errorMessage={error} />}
-        <CardComponent
-          card={card}
-          onEdit={onEdit}
-          onLike={onLike}
-          onDelete={onDelete}
-        /> */}
         <CardFeedback
           onEdit={onEdit}
           onLike={onLike}

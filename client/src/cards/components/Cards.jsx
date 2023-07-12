@@ -3,11 +3,13 @@ import React from "react";
 import CardComponent from "./card/Card";
 import { arrayOf } from "prop-types";
 import cardType from "../models/types/cardType";
+import useCards from "../hooks/useCards";
 
 const Cards = ({cards}) => {
+  const { handleDeleteCard } = useCards();
 
   const onLike = (cardId) => console.log(`you liked card no:${cardId}`);
-  const onDelete = (cardId) => console.log(`you deleted card no:${cardId}`);
+  const onDelete = (cardId) => handleDeleteCard(cardId);
   const onEdit = (cardId) => console.log(`you edited card no:${cardId}`);
 
   return (
