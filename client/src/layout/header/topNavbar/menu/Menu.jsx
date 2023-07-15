@@ -38,13 +38,13 @@ const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
               text="login"
               navigateTo={ROUTES.LOGIN}
               onClick={onClose}
-              styles={{ display: { xs: "block", md: "none" } }}
+              styles={{ display: { xs: "block", md: "none",color:"black" } }}
             ></MenuLink>
             <MenuLink
               text="signup"
               navigateTo={ROUTES.SIGNUP}
               onClick={onClose}
-              styles={{ display: { xs: "block", md: "none" } }}
+              styles={{ display: { xs: "block", md: "none",color:"black" } }}
             ></MenuLink>
           </>
         )}
@@ -54,13 +54,13 @@ const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
               text="profile"
               navigateTo={ROUTES.USER_PROFILE}
               onClick={onClose}
-              styles={{ color: "black" }}
+              styles={{color:"black" }}
             ></MenuLink>
             <MenuLink
               text="logout"
               navigateTo={ROUTES.CARDS}
               onClick={onLogout}
-              styles={{ color: "black" }}
+              styles={{ color:"black" }}
             ></MenuLink>
           </>
         )}

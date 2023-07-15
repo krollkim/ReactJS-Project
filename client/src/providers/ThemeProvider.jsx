@@ -22,7 +22,7 @@ export const ThemeProvider = ({ children }) => {
     const theme = createTheme({
         palette: {
             mode: isDark ? 'dark' : 'light',
-        },
+        },        
     });
 
     const value = useMemo(() => {

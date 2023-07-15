@@ -15,7 +15,7 @@ import ROUTES from '../../../routes/routesModel';
 
 
 const CardComponent = ({ card, onDelete, onLike, onEdit }) => {
-
+  
   const navigate = useNavigate();
   return (
  <>
@@ -32,6 +32,7 @@ const CardComponent = ({ card, onDelete, onLike, onEdit }) => {
             cardId={card._id}
             onDelete={onDelete}
             onLike={onLike}
+            card={card}
             onEdit={onEdit}
             />
     </Card>

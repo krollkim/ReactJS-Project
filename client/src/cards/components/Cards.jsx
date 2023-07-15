@@ -6,9 +6,17 @@ import cardType from "../models/types/cardType";
 import useCards from "../hooks/useCards";
 
 const Cards = ({cards,setCards}) => {
-  const { handleDeleteCard } = useCards();
+  const { handleDeleteCard, handleLikeCard } = useCards();
   // console.log(cards);
-  const onLike = (cardId) => console.log(`you liked card no:${cardId}`);
+  const onLike = (cardId) => {
+    console.log(`you liked card no:${cardId}`)
+    try {
+      handleLikeCard(cardId)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
   const onDelete = async (cardId) => {
     console.log(`you delete card no ${cardId}`)
     try {

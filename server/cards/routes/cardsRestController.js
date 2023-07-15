@@ -95,6 +95,7 @@ router.put("/:id", auth, async (req, res) => {
 router.patch("/:id", auth, async (req, res) => {
   try {
     const cardId = req.params.id;
+    console.log(req.user._id);
     const userId = req.user._id;
 
     const card = await likeCard(cardId, userId);

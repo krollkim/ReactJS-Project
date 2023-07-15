@@ -47,6 +47,16 @@ export const editCard = async (card, cardId) => {
   }
 };
 
+export const likeCard = async (cardId) => {
+  console.log(cardId);
+  try {
+    const { data } = await axios.patch(`${apiUrl}/cards/${cardId}`);
+    return data;
+  } catch (error) {
+    return Promise.reject(error.message);
+  }
+};
+
 export const deleteCard = async cardId => {
   try {
     const { data } = await axios.delete(`${apiUrl}/cards/${cardId}`);
