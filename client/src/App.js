@@ -7,6 +7,7 @@ import { SnackbarProvider } from "./providers/SnackbarProvider";
 import { UserProvider } from "./users/providers/UserProvider";
 
 function App() {
+  
   return (
     <>
       <BrowserRouter>

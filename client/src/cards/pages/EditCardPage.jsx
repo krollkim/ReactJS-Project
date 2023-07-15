@@ -17,6 +17,7 @@ const EditCardPage = () => {
     cardSchema,
     handleUpdateCard,
   );
+  console.log(value);
 
   if (!user || !user.isBusiness) return <Navigate replace to={ROUTES.CARDS} />;
 

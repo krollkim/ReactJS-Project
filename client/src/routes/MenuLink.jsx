@@ -15,7 +15,7 @@ const MenuLink = ({ text, navigateTo, onClick, styles }) => {
 };
 
 MenuLink.propTypes = {
-  navigateTo: string.isRequired,
+  navigateTo: string,
   onClick: func.isRequired,
   text: string.isRequired,
 };

@@ -101,6 +101,8 @@ const useCards = () => {
     cards,
     pending,
     error,
+    setCards,
+    setCard,
     handleGetCards,
     handleGetCard,
     handleGetMyCards,

@@ -12,6 +12,7 @@ const {
   error, 
   cards, 
   handleGetCards,
+  setCards,
 } = useCards();
 
 useEffect(()=> {
@@ -29,6 +30,7 @@ const onDeleteCard = () => {};
         error={error}
         cards={cards}
         onDelete={onDeleteCard}
+        setCards={setCards}
         />
     </Container>
   )

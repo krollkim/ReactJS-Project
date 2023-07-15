@@ -7,11 +7,12 @@ const UserContext = React.createContext(null);
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(getToken);
-
+  console.log(token);
   useEffect(() => {
     if (!user) {
       const userFromLocaleStorage = getUser();
       setUser(userFromLocaleStorage);
+      setToken(localStorage?.getItem("token"));
     }
   }, [user]);
 

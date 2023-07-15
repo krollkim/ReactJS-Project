@@ -10,7 +10,7 @@ import CardsFeedback from "../components/CardsFeedback";
 
 const MyCardsPage = () => {
   const { user } = useUser();
-  const { pending, error, cards, handleGetMyCards } = useCards();
+  const { pending, error, cards, handleGetMyCards,setCards } = useCards();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,6 +37,7 @@ const MyCardsPage = () => {
         error={error}
         cards={cards}
         onDelete={() => {}}
+        setCards={setCards}
       />
     </Container>
   );

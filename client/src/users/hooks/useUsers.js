@@ -46,6 +46,22 @@ const useUsers = () => {
     [navigate, requestStatus, setToken]
   );
 
+  const handleAutoLogin = useCallback (
+    async user => {
+      try {
+        const token = await login (user);
+        setToken (token);
+        setTokenInLocalStorage (token);
+        const userFromLocalStorage = getUser ();
+        requestStatus (false, null, null, userFromLocalStorage);
+        navigate (ROUTES.CARDS);
+      } catch (error) {
+        requestStatus (false, error, null);
+      }
+    },
+    [navigate, requestStatus, setToken]
+  );
+
   const handleLogout = useCallback (
     () => {
       removeToken ();

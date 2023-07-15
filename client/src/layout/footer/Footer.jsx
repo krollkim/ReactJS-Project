@@ -26,7 +26,7 @@ const Footer = () => {
         )}
         {user && user.isBusiness && (
         <BottomNavigationAction 
-        onClick={() => navigateTo(ROUTES.CARDS)} label="My Cards" icon={<PortraitIcon />} />
+        onClick={() => navigateTo(ROUTES.MY_CARDS)} label="My Cards" icon={<PortraitIcon />} />
          )}
       </BottomNavigation>
     </Paper>

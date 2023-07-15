@@ -1,15 +1,23 @@
-import {Grid, Container} from "@mui/material";
+import { Grid } from "@mui/material";
 import React from "react";
 import CardComponent from "./card/Card";
 import { arrayOf } from "prop-types";
 import cardType from "../models/types/cardType";
 import useCards from "../hooks/useCards";
 
-const Cards = ({cards}) => {
+const Cards = ({cards,setCards}) => {
   const { handleDeleteCard } = useCards();
-
+  // console.log(cards);
   const onLike = (cardId) => console.log(`you liked card no:${cardId}`);
-  const onDelete = (cardId) => handleDeleteCard(cardId);
+  const onDelete = async (cardId) => {
+    console.log(`you delete card no ${cardId}`)
+    handleDeleteCard(cardId)
+    console.log(setCards);
+    setCards((prevCards) =>
+        cards.filter((card) => card._id !== cardId) // Remove deleted card from the state
+      );
+    
+  }
   const onEdit = (cardId) => console.log(`you edited card no:${cardId}`);
 
   return (
