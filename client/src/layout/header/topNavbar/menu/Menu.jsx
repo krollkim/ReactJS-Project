@@ -38,13 +38,13 @@ const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
               text="login"
               navigateTo={ROUTES.LOGIN}
               onClick={onClose}
-              styles={{ display: { xs: "block", md: "none" }, color: "black" }}
+              styles={{ display: { xs: "block", md: "none" } }}
             ></MenuLink>
             <MenuLink
               text="signup"
               navigateTo={ROUTES.SIGNUP}
               onClick={onClose}
-              styles={{ display: { xs: "block", md: "none" }, color: "black" }}
+              styles={{ display: { xs: "block", md: "none" } }}
             ></MenuLink>
           </>
         )}

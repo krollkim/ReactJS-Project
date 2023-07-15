@@ -11,11 +11,17 @@ const Cards = ({cards,setCards}) => {
   const onLike = (cardId) => console.log(`you liked card no:${cardId}`);
   const onDelete = async (cardId) => {
     console.log(`you delete card no ${cardId}`)
-    handleDeleteCard(cardId)
+    try {
+      handleDeleteCard(cardId)
+      setCards((prevCards) =>
+      cards.filter((card) => card._id !== cardId) // Remove deleted card from the state
+    );
+    } catch (e) {
+      console.log(e);
+    }
+    
     console.log(setCards);
-    setCards((prevCards) =>
-        cards.filter((card) => card._id !== cardId) // Remove deleted card from the state
-      );
+   
     
   }
   const onEdit = (cardId) => console.log(`you edited card no:${cardId}`);

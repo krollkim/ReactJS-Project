@@ -17,7 +17,7 @@ const {
 
 useEffect(()=> {
     handleGetCards();
-}, []);
+},[]);
 
 const onDeleteCard = () => {};
 
