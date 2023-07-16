@@ -18,10 +18,8 @@ const CardActionBar = ({cardId, onDelete, onLike, userId,card }) => {
   const { user } = useUser();
   
   const navigate = useNavigate();
-  // console.log(user._id);
   const isLiked = () => {
     const likeColor = card.likes.filter(like => (like === user._id))
-    console.log(likeColor);
     return likeColor[0] === user._id ? "red" : "inherit"
   }
   

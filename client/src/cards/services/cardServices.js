@@ -57,6 +57,15 @@ export const likeCard = async (cardId) => {
   }
 };
 
+// export const getLikeCard = async () => {
+//     try {
+//     const { data } = await axios.get(`${apiUrl}/cards/favorite`);
+//     return data;
+//   } catch (error) {
+//     return Promise.reject(error.message);
+//   }
+// };
+
 export const deleteCard = async cardId => {
   try {
     const { data } = await axios.delete(`${apiUrl}/cards/${cardId}`);

@@ -11,6 +11,7 @@ import CardDetailsPage from "../cards/pages/CardDetailsPage";
 import Cards from "../cards/components/Cards";
 import CreateCardPage from "../cards/pages/CreateCardPage";
 import EditCardPage from "../cards/pages/EditCardPage";
+import MyFavoriteCards from "../cards/pages/MyFavoriteCards";
 
 const Router = () => {
   return (
@@ -26,6 +27,7 @@ const Router = () => {
       <Route path={`${ROUTES.CARD_INFO}/:id/:title/:url`} element={<CardDetailsPage />} />
       <Route path={ROUTES.LOGO} element={<Cards />} />
       <Route path={ROUTES.LOGOICON} element={<Cards />} />
+      <Route path={ROUTES.FAV_CARDS} element={<MyFavoriteCards />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
