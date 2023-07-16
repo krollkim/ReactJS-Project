@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import ROUTES from '../../../routes/routesModel';
 
 
-const CardComponent = ({ card, onDelete, onLike, onEdit }) => {
+const CardComponent = ({cards, card, onDelete, onLike, onEdit,like,setLike,setCards }) => {
   
   const navigate = useNavigate();
   return (
@@ -31,9 +31,13 @@ const CardComponent = ({ card, onDelete, onLike, onEdit }) => {
             userId={card.user_id}
             cardId={card._id}
             onDelete={onDelete}
-            onLike={onLike}
+            // onLike={onLike}
             card={card}
+            cards={cards}
             onEdit={onEdit}
+            setCards={setCards}
+            // setLike={setLike}
+            // like={like}
             />
     </Card>
   </Box>
@@ -43,8 +47,6 @@ const CardComponent = ({ card, onDelete, onLike, onEdit }) => {
 
 CardComponent.propTypes = {
   card: cardType.isRequired,
-  onLike: func.isRequired,
-  onDelete: func.isRequired,
   onEdit: func.isRequired,
 };
 
