@@ -18,7 +18,7 @@ const CardForm = ({
       onReset={onReset}
       errors={errors}
       onChange={onFormChange}
-      styles={{ maxWidth: "800px", background: '#7662c5', borderRadius: 8,}}
+      styles={{ maxWidth: "800px" }}
       title={title}
     >
       <Input

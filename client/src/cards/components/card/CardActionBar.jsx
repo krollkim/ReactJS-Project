@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from "@mui/icons-material/Delete";
 import CallIcon from '@mui/icons-material/Call';
@@ -13,6 +13,7 @@ import { useUser } from '../../../users/providers/UserProvider';
 import { useNavigate } from "react-router-dom";
 import ROUTES from '../../../routes/routesModel';
 import useCards from '../../hooks/useCards';
+import useCardActionBar from './hooks/useCardActionBar';
 
 // working likes and delete
 
@@ -20,47 +21,14 @@ const CardActionBar = ({ cardId, userId, card, setLike, cards, setCards }) => {
   const { user } = useUser();
   const navigate = useNavigate();
   const { handleLikeCard, handleDeleteCard } = useCards()
-  const [localLike, setLocalLike] = useState()
-
-  const onDelete = async (cardId) => {
-    console.log(`you delete card no ${cardId}`)
-    try {
-      handleDeleteCard(cardId)
-      setCards((prevCards) => cards.filter((card) => card._id !== cardId)
-      );
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-  const onLike = async (cardId) => {
-    console.log(`you liked card no:${cardId}`)
-    try {
-      await handleLikeCard(cardId)
-      cards.map(card => {
-
-        if (card._id === cardId) {
-          console.log("card should shange to liked");
-          localLike ? setLocalLike(false) : setLocalLike(true)
-          return card
-        }
-        return card
-      })
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const { onDelete, onLike,localLike,setLocalLike } = useCardActionBar(handleDeleteCard,handleLikeCard,setCards,cards)
 
   useEffect(() => {
     const isLiked = async () => {
-      console.log('in is liked');
-      const hasUser = await card.likes.filter(like => (like === user?._id))
-      console.log(hasUser);
+      const hasUser = await card.likes.filter(like => (like === user?._id))   
       if (hasUser.length > 0) {
-        console.log('in if test');
         setLocalLike(true)
       }
-
     }
     isLiked()
   }, [setLike, card.likes, user?._id, setLocalLike])

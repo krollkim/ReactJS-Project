@@ -18,6 +18,7 @@ const normalizeCard = card => {
       houseNumber: card.houseNumber,
       zip: card.zip,
     },
+    user_id: card.user_id,
   };
 };
 

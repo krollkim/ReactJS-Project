@@ -6,17 +6,18 @@ import { ThemeProvider } from "./providers/ThemeProvider";
 import { SnackbarProvider } from "./providers/SnackbarProvider";
 import { UserProvider } from "./users/providers/UserProvider";
 
+
 function App() {
-  
+
   return (
     <>
       <BrowserRouter>
         <ThemeProvider>
           <SnackbarProvider>
-            <UserProvider>
-              <Layout>
-                <Router />
-              </Layout>
+            <UserProvider>    
+                <Layout>
+                  <Router />
+                </Layout>
             </UserProvider>
           </SnackbarProvider>
         </ThemeProvider>

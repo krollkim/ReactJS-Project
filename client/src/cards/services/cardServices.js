@@ -37,8 +37,8 @@ export const createCard = async card => {
   }
 };
 
-export const editCard = async (card, cardId) => {
-  console.log(cardId);
+export const editCard = async (card,cardId) => {
+  console.log(card);
   try {
     const { data } = await axios.put(`${apiUrl}/cards/${cardId}`, card);
     return data;
@@ -48,7 +48,6 @@ export const editCard = async (card, cardId) => {
 };
 
 export const likeCard = async (cardId) => {
-  console.log(cardId);
   try {
     const { data } = await axios.patch(`${apiUrl}/cards/${cardId}`);
     return data;

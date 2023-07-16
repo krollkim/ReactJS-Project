@@ -7,7 +7,7 @@ import cardType from "../models/types/cardType";
 const Cards = ({cards,setCards}) => {  
   
   const onEdit = (cardId) => console.log(`you edited card no:${cardId}`);
-
+  
   return (
   
     <Grid container spacing={2} pb={2}>

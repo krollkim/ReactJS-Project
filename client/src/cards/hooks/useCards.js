@@ -11,15 +11,17 @@ import {
   createCard, 
   editCard, 
   deleteCard,
-  likeCard,
+  likeCard,  
 } from "../services/cardServices";
 
 
 const useCards = () => {
   const [cards, setCards] = useState(null);
   const [card, setCard] = useState(null);
+  const [like, setLike] = useState(false)
   const [error, setError] = useState(null);
   const [pending, setPending] = useState(false);
+  const [cardId,setCardId] = useState(null);
   const {setSnack} = useSnack();
   const navigate = useNavigate();
 
@@ -30,6 +32,7 @@ const useCards = () => {
     setError(error);
     setCards(cards);
     setCard(card);
+    
   };
 
   const handleGetCards = async () => {
@@ -76,11 +79,16 @@ const useCards = () => {
     }
   }, [setSnack, navigate]);
 
-  const handleUpdateCard = async cardId => {
+  const handleUpdateCard = async (card) => {
+    
     try {
       setPending(true);
-      const card = await editCard(cardId);
+      const normalCard = normalizeCard(card);
+      const data = await editCard(normalCard,cardId);
+      console.log(data);
       requestStatus(false, null, null, card);
+      setSnack('success', 'your card has been UPDATED!');
+      navigate(ROUTES.MY_CARDS)
     } catch (error) {
       requestStatus(false, error, null, null);
     }
@@ -89,9 +97,8 @@ const useCards = () => {
   const handleLikeCard = async cardId => {
     try {
       setPending(true);
-      console.log("in like card", cardId);
       const card = await likeCard(cardId);
-      requestStatus(false, null, null, card);
+      requestStatus(false, null, null, card, );
     } catch (error) {
       requestStatus(false, error, null, null);
     }
@@ -116,6 +123,8 @@ const useCards = () => {
     error,
     setCards,
     setCard,
+    like,
+    setLike,
     handleGetCards,
     handleGetCard,
     handleGetMyCards,
@@ -123,6 +132,7 @@ const useCards = () => {
     handleUpdateCard,
     handleDeleteCard,
     handleLikeCard,
+    setCardId,
   };
 };
 

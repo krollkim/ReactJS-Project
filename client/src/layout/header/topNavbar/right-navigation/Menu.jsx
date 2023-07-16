@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 
 const Menu = ({ isMenuOpen, anchorEl, onCloseMenu }) => {
   const user = true;
+  // const user = false
 
   return (
     <MuiMenu
