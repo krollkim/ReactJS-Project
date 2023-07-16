@@ -22,7 +22,7 @@ const UserForm = ({
       onSubmit={onSubmit}
       onReset={onReset}
       onChange={onFormChange}
-      styles={{ maxWidth: "800px" }}
+      styles={{ maxWidth: "800px", background: '#7662c5', borderRadius: 8,}}
       title={title}
       to={ROUTES.CARDS}
     >

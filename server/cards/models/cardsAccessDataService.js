@@ -61,17 +61,24 @@ const createCard = async normalizedCard => {
 const updateCard = async (cardId, normalizedCard) => {
   if (DB === "MONGODB") {
     try {
-      let card = await Card.findByIdAndUpdate(cardId, normalizedCard, {
-        new: true,
-      });
+      let card = await Card.findByIdAndUpdate(
+        cardId,
+        normalizedCard,
+        { new: true }
+      );
 
-      if (!card)
+      if (!card) {
         throw new Error("A card with this ID cannot be found in the database");
+      }
 
       return Promise.resolve(card);
     } catch (error) {
-      error.status = 400;
-      return handleBadRequest("Mongoose", error);
+      if (error.message === "A card with this ID cannot be found in the database") {
+        return Promise.reject(new Error(404, "Card not found"));
+      } else {
+        error.status = 400;
+        return handleBadRequest("Mongoose", error);
+      }
     }
   }
   return Promise.resolve("card updateCard not in mongodb");

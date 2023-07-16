@@ -12,7 +12,6 @@ import {
   editCard, 
   deleteCard,
   likeCard,
-  // getLikeCard,  
 } from "../services/cardServices";
 
 
@@ -97,15 +96,6 @@ const useCards = () => {
       requestStatus(false, error, null, null);
     }
   };
-  // const handleGetLikeCards = async () => {
-  //   try {
-  //     setPending(true);
-  //     const card = await getLikeCard();
-  //     requestStatus(false, null, null, card);
-  //   } catch (error) {
-  //     requestStatus(false, error, null, null);
-  //   }
-  // };
 
   const handleDeleteCard = async cardId => {
     try {
@@ -133,7 +123,6 @@ const useCards = () => {
     handleUpdateCard,
     handleDeleteCard,
     handleLikeCard,
-    // handleGetLikeCards,
   };
 };
 

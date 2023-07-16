@@ -1,20 +1,37 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import CardComponent from "./card/Card";
-import { arrayOf } from "prop-types";
+import { arrayOf, bool } from "prop-types";
 import cardType from "../models/types/cardType";
 import useCards from "../hooks/useCards";
+import { useUser } from '../../users/providers/UserProvider';
 
 const Cards = ({cards,setCards}) => {
   const { handleDeleteCard, handleLikeCard } = useCards();
-  // console.log(cards);
+  const { user } = useUser();
+  const setLike = bool;
   const onLike = (cardId) => {
     console.log(`you liked card no:${cardId}`)
     try {
       handleLikeCard(cardId)
+      cards.map(card => {
+        if(card._id === cardId) {
+          card.likes.map(like => {
+            if(like === user._id) {
+              setLike(false)
+            } else {
+              setLike(true)
+              card.likes.push(user._id)
+            }
+          })
+          
+        } else {
+          return
+        }
+      })
     } catch (err) {
       console.log(err);
-    }
+    }
   };
   
   const onDelete = async (cardId) => {

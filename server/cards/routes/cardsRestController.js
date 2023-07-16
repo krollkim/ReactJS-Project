@@ -13,6 +13,7 @@ const {
 } = require("../models/cardsAccessDataService");
 const validateCard = require("../validations/cardValidationService");
 const router = express.Router();
+const { useParams } = require("react-router-dom");
 router.get("/", async (req, res) => {
   try {
     const cards = await getCards();
@@ -69,10 +70,6 @@ router.put("/:id", auth, async (req, res) => {
     const cardId = req.params.id;
     const userId = req.user._id;
 
-    console.log(req.body);
-    console.log(req.params);
-    console.log(req.user._id);
-
     if (userId !== card.user_id) {
       const message =
         "Authorization Error: Only the user who created the business card can update its details";
@@ -84,8 +81,20 @@ router.put("/:id", auth, async (req, res) => {
       return handleError(res, 400, `Joi Error: ${error.details[0].message}`);
 
     card = await normalizeCard(card);
-    card = await updateCard(cardId, card);
-    return res.send(card);
+    let updatedCard;
+
+    try {
+      updatedCard = await updateCard(cardId, card);
+    } catch (error) {
+      if (error.message === "A card with this ID cannot be found in the database") {
+        return Promise.reject(new Error(404, "Card not found"));
+      } else {
+        error.status = 400;
+        return handleBadRequest("Mongoose", error);
+      }
+    }
+
+    return res.send(updatedCard);
   } catch (error) {
     return handleError(res, error.status || 500, error.message);
   }
