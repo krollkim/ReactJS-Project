@@ -13,7 +13,6 @@ const {
 } = require("../models/cardsAccessDataService");
 const validateCard = require("../validations/cardValidationService");
 const router = express.Router();
-
 router.get("/", async (req, res) => {
   try {
     const cards = await getCards();

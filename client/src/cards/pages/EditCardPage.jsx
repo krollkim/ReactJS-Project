@@ -9,7 +9,7 @@ import { Navigate } from "react-router-dom";
 import { Container } from "@mui/material";
 import CardForm from "../components/CardForm";
 
-const EditCardPage = () => {
+const EditCardPage = ({ cardId }) => {
   const { handleUpdateCard } = useCards();
   const { user } = useUser();
   const { value, ...rest } = useForm(
@@ -38,6 +38,7 @@ const EditCardPage = () => {
         onFormChange={rest.validateForm}
         onInputChange={rest.handleChange}
         data={value.data}
+        cardId={cardId}
       />
     </Container>
   );
