@@ -10,7 +10,8 @@ import {
   getMyCards,
   createCard, 
   editCard, 
-  deleteCard,  
+  deleteCard,
+  likeCard,  
 } from "../services/cardServices";
 
 
@@ -61,6 +62,7 @@ const useCards = () => {
     }
   }, [])
 
+ 
   const handleCreateCard = useCallback(async cardFromClient => {
     try{
       setPending(true);
@@ -78,6 +80,17 @@ const useCards = () => {
     try {
       setPending(true);
       const card = await editCard(cardId);
+      requestStatus(false, null, null, card);
+    } catch (error) {
+      requestStatus(false, error, null, null);
+    }
+  };
+
+  const handleLikeCard = async cardId => {
+    try {
+      setPending(true);
+      console.log("in like card", cardId);
+      const card = await likeCard(cardId);
       requestStatus(false, null, null, card);
     } catch (error) {
       requestStatus(false, error, null, null);
@@ -109,6 +122,7 @@ const useCards = () => {
     handleCreateCard,
     handleUpdateCard,
     handleDeleteCard,
+    handleLikeCard,
   };
 };
 

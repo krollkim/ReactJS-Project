@@ -13,9 +13,18 @@ import { useUser } from '../../../users/providers/UserProvider';
 import { useNavigate } from "react-router-dom";
 import ROUTES from '../../../routes/routesModel';
 
-const CardActionBar = ({cardId, onDelete, onLike, userId }) => {
+
+const CardActionBar = ({cardId, onDelete, onLike, userId,card }) => {
   const { user } = useUser();
+  
   const navigate = useNavigate();
+  // console.log(user._id);
+  const isLiked = () => {
+    const likeColor = card.likes.filter(like => (like === user._id))
+    console.log(likeColor);
+    return likeColor[0] === user._id ? "red" : "inherit"
+  }
+  
   return (
    
 <CardActions sx={{pt:0, justifyContent: "space-between"}}>
@@ -36,7 +45,7 @@ const CardActionBar = ({cardId, onDelete, onLike, userId }) => {
       <CallIcon/>
     </IconButton>
     { user && (
-   <IconButton aria-label='like' onClick={()=>onLike(cardId)}>
+   <IconButton sx={{color: isLiked() }} aria-label='like' onClick={()=>onLike(cardId)}>
     <FavoriteIcon/>
     </IconButton>
     )}
