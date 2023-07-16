@@ -8,6 +8,8 @@ import ROUTES from "../../routes/routesModel";
 import { Navigate } from "react-router-dom";
 import { Container } from "@mui/material";
 import CardForm from "../components/CardForm";
+import BubbleChartIcon from '@mui/icons-material/BubbleChart';
+
 
 const EditCardPage = ({ cardId }) => {
   const { handleUpdateCard } = useCards();
@@ -30,6 +32,16 @@ const EditCardPage = ({ cardId }) => {
         alignItems: "center",
       }}
     >
+      <BubbleChartIcon sx={{
+          justifyContent: "center",
+          alignItems: "center",
+          width: 50,
+          height: 50,
+          display: 'absolute',
+          right: 0,
+          left: 0,
+          margin: 'auto'
+          }}/>
       <CardForm
         title="edit Card"
         onSubmit={rest.onSubmit}
@@ -40,6 +52,16 @@ const EditCardPage = ({ cardId }) => {
         data={value.data}
         cardId={cardId}
       />
+      <BubbleChartIcon sx={{
+          justifyContent: "center",
+          alignItems: "center",
+          width: 50,
+          height: 50,
+          display: 'absolute',
+          right: 0,
+          left: 0,
+          margin: 'auto'
+          }}/>
     </Container>
   );
 };

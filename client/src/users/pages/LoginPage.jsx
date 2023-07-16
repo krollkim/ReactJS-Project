@@ -9,6 +9,7 @@ import loginSchema from "../models/joi-schema/loginSchema";
 import Container from "@mui/material/Container";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
+import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 <link rel="stylesheet" href="stylingForForms.css" />
 const LoginPage = () => {
   const { user } = useUser();
@@ -76,7 +77,7 @@ const LoginPage = () => {
           zIndex: 11,
         }}/>
         </Container> */}
-       
+      
       <Form
         onSubmit={rest.onSubmit}
         onReset={rest.handleReset}
@@ -84,6 +85,16 @@ const LoginPage = () => {
         title="login"
         styles={{zIndex: 10, maxWidth: "450px", background: '#7662c5bb', borderRadius: 8,}}
         to={ROUTES.CARDS}>
+            <BubbleChartIcon sx={{
+              justifyContent: "center",
+              alignItems: "center",
+              width: 50,
+              height: 50,
+              display: 'absolute',
+              right: 0,
+              left: 0,
+              margin: 'auto'
+              }}/>
         <Input
           label="email"
           name="email"
