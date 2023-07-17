@@ -116,6 +116,19 @@ const useCards = () => {
     if(card) navigate(ROUTES.CARDS);
   };
 
+  const handleGetFavCards = async (userId) => {
+    try {
+      setPending(true)
+      const cards = await getCards()
+      const favCards = cards.filter(card => {    
+        return card.likes.map((like) => (like === userId))[0] 
+      })
+      requestStatus(false,null,favCards,null)
+    } catch (error) {
+      requestStatus(false, error, null, null);
+    }
+  }
+
   return {
     card,
     cards,
@@ -132,6 +145,7 @@ const useCards = () => {
     handleUpdateCard,
     handleDeleteCard,
     handleLikeCard,
+    handleGetFavCards,
     setCardId,
   };
 };

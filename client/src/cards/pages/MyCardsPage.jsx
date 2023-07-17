@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useUser } from "../../users/providers/UserProvider";
 import useCards from "../hooks/useCards";
 import PageHeader from "../../components/PageHeader";
@@ -7,11 +7,20 @@ import ROUTES from "../../routes/routesModel";
 import { Container, Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import CardsFeedback from "../components/CardsFeedback";
+import { searchContext } from "../../providers/SearchProvider";
 
 const MyCardsPage = () => {
   const { user } = useUser();
   const { pending, error, cards, handleGetMyCards,setCards } = useCards();
+  const { searchQuery } = useContext(searchContext)
   const navigate = useNavigate();
+
+  let filtered = []
+  if(searchQuery.length > 0) {
+    filtered = cards?.filter(card => (card?.title.match(searchQuery)))
+  } else {
+    filtered = cards
+  }
 
   useEffect(() => {
     if (!user || !user.isBusiness) navigate(ROUTES.CARDS);
@@ -35,7 +44,7 @@ const MyCardsPage = () => {
       <CardsFeedback
         pending={pending}
         error={error}
-        cards={cards}
+        cards={filtered}
         onDelete={() => {}}
         setCards={setCards}
       />

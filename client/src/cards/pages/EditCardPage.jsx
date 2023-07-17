@@ -11,7 +11,7 @@ import CardForm from "../components/CardForm";
 import { getCard } from "../services/cardServices";
 
 // eslint-disable-next-line
-const EditCardPage = ({}) => {
+const EditCardPage = () => {
   const { handleUpdateCard,setCardId } = useCards();
   const params = useParams()
   // eslint-disable-next-line

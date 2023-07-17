@@ -11,11 +11,13 @@ import CardDetailsPage from "../cards/pages/CardDetailsPage";
 import Cards from "../cards/components/Cards";
 import CreateCardPage from "../cards/pages/CreateCardPage";
 import EditCardPage from "../cards/pages/EditCardPage";
+import MyFavoriteCards from "../cards/pages/MyFavoriteCards";
 
 const Router = () => {
   return (
     <Routes>
       <Route path={ROUTES.ROOT} element={<CardsPage />} />
+      <Route path={ROUTES.FAV_CARDS} element={<MyFavoriteCards />} />
       <Route path={ROUTES.CARDS} element={<CardsPage />} />
       <Route path={ROUTES.MY_CARDS} element={<MyCardsPage />} />
       <Route path={ROUTES.CREATE_CARD} element={<CreateCardPage />} />

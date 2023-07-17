@@ -5,6 +5,7 @@ import Layout from "./layout/main/Layout";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { SnackbarProvider } from "./providers/SnackbarProvider";
 import { UserProvider } from "./users/providers/UserProvider";
+import { SearchProvider } from "./providers/SearchProvider";
 
 
 function App() {
@@ -14,10 +15,12 @@ function App() {
       <BrowserRouter>
         <ThemeProvider>
           <SnackbarProvider>
-            <UserProvider>    
+            <UserProvider>
+              <SearchProvider>
                 <Layout>
                   <Router />
                 </Layout>
+              </SearchProvider>
             </UserProvider>
           </SnackbarProvider>
         </ThemeProvider>
