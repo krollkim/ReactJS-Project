@@ -2,6 +2,7 @@ import React from "react";
 import { func, object, string } from "prop-types";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
+import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 
 const CardForm = ({
   onSubmit,
@@ -13,12 +14,23 @@ const CardForm = ({
   title,
 }) => {
   return (
+    <>
+    <BubbleChartIcon sx={{
+      justifyContent: "center",
+      alignItems: "center",
+      width: 50,
+      height: 50,
+      display: 'absolute',
+      right: 0,
+      left: 0,
+      margin: 'auto'
+    }}/>
     <Form
       onSubmit={onSubmit}
       onReset={onReset}
       errors={errors}
       onChange={onFormChange}
-      styles={{ maxWidth: "800px" }}
+      styles={{ maxWidth: "800px", background: '#7662c5bb', borderRadius: 8,  }}
       title={title}
     >
       <Input
@@ -143,6 +155,17 @@ const CardForm = ({
         required={false}
       />
     </Form>
+    <BubbleChartIcon sx={{
+      justifyContent: "center",
+      alignItems: "center",
+      width: 50,
+      height: 50,
+      display: 'absolute',
+      right: 0,
+      left: 0,
+      margin: 'auto'
+    }}/>
+    </>
   );
 };
 

@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
 import ROUTES from "../../routes/routesModel";
+import BubbleChartIcon from '@mui/icons-material/BubbleChart';
 
 const UserForm = ({
   onSubmit,
@@ -18,11 +19,22 @@ const UserForm = ({
   setData,
 }) => {
   return (
+    <>
+    <BubbleChartIcon sx={{
+      justifyContent: "center",
+      alignItems: "center",
+      width: 50,
+      height: 50,
+      display: 'absolute',
+      right: 0,
+      left: 0,
+      margin: 'auto'
+    }}/>
     <Form
       onSubmit={onSubmit}
       onReset={onReset}
       onChange={onFormChange}
-      styles={{ maxWidth: "800px" }}
+      styles={{ maxWidth: "800px", background: '#7662c5', borderRadius: 8, }}
       title={title}
       to={ROUTES.CARDS}
     >
@@ -158,6 +170,17 @@ const UserForm = ({
         />
       </Grid>
     </Form>
+    <BubbleChartIcon sx={{
+      justifyContent: "center",
+      alignItems: "center",
+      width: 50,
+      height: 50,
+      display: 'absolute',
+      right: 0,
+      left: 0,
+      margin: 'auto'
+    }}/>
+    </>
   );
 };
 

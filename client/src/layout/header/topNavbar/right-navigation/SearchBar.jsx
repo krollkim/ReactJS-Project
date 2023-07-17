@@ -10,7 +10,7 @@ import { searchContext } from "../../../../providers/SearchProvider";
 
 const SearchBar = () => {
   const {isDark} = useTheme();
-  const { handleChange} = useContext(searchContext)
+  const { handleChange } = useContext(searchContext)
  
   return (
     <Box display="inline-flex">
