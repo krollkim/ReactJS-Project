@@ -23,7 +23,7 @@ const MyFavoriteCards = () => {
 
   useEffect( () => {
     const getCards = async ()=>{
-      if (!user || !user.isBusiness){ 
+      if (!user){ 
         navigate(ROUTES.CARDS);}
       else {
         await handleGetFavCards(user._id);
