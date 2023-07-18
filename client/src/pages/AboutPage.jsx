@@ -48,9 +48,9 @@ const AboutPage = () => {
     <Typography variant="body1" ml={2} mb={3}>
         This website uses the following technologies:
         <ul>
-          <li><Typography variant="h6" mb={1} mt={2}>ReactJS</Typography>: A JavaScript library for building user interfaces.</li>
-          <li><Typography variant="h6" mb={1} mt={2}>NodeJS</Typography>: A runtime environment for JavaScript.</li>
-          <li><Typography variant="h6" mb={1} mt={2}>MongoDB</Typography>: A NoSQL database.</li>
+          <li><Typography variant="h6" mb={1} mt={2}>ReactJS:</Typography> A JavaScript library for building user interfaces.</li>
+          <li><Typography variant="h6" mb={1} mt={2}>NodeJS:</Typography> A runtime environment for JavaScript.</li>
+          <li><Typography variant="h6" mb={1} mt={2}>MongoDB:</Typography> A NoSQL database.</li>
         </ul>
       </Typography>
       <Typography variant="body1" sx={{fontWeight: 800, mb: 3}}>
