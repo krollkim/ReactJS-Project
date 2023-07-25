@@ -1,5 +1,5 @@
 import React from "react";
-import { func, bool } from "prop-types";
+import { func, bool, object } from "prop-types";
 import { useUser } from "../../../../users/providers/UserProvider";
 import useUsers from "../../../../users/hooks/useUsers";
 import Menu from "@mui/material/Menu";
@@ -30,7 +30,7 @@ const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
           text="about"
           navigateTo={ROUTES.ABOUT}
           onClick={onClose}
-          styles={{ color: "black" }}
+          styles={{ color: "#7662c5" }}
         ></MenuLink>
         {!user && (
           <>
@@ -38,13 +38,13 @@ const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
               text="login"
               navigateTo={ROUTES.LOGIN}
               onClick={onClose}
-              styles={{ display: { xs: "block", md: "none",color:"black" } }}
+              styles={{ display: { xs: "block", md: "none", color: "#FF9900" } }}
             ></MenuLink>
             <MenuLink
               text="signup"
               navigateTo={ROUTES.SIGNUP}
               onClick={onClose}
-              styles={{ display: { xs: "block", md: "none",color:"black" } }}
+              styles={{ display: { xs: "block", md: "none", color: "#FF9900" } }}
             ></MenuLink>
           </>
         )}
@@ -54,13 +54,21 @@ const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
               text="profile"
               navigateTo={ROUTES.USER_PROFILE}
               onClick={onClose}
-              styles={{color:"black" }}
+              styles={{ color: "#7662c5" }}
             ></MenuLink>
+            {user.isAdmin &&
+              <MenuLink
+                text="User List"
+                navigateTo={ROUTES.ADMIN_PANEL}
+                onClick={onClose}
+                styles={{ color: "#7662c5" }}
+              ></MenuLink>
+            }
             <MenuLink
               text="logout"
               navigateTo={ROUTES.CARDS}
               onClick={onLogout}
-              styles={{ color:"black" }}
+              styles={{ color: "#7662c5" }}
             ></MenuLink>
           </>
         )}
@@ -72,6 +80,7 @@ const MenuComponent = ({ isOpen, anchorEl, onClose }) => {
 MenuComponent.propTypes = {
   isOpen: bool.isRequired,
   onClose: func.isRequired,
+  anchorEl: object.isRequired,
 };
 
 export default MenuComponent;

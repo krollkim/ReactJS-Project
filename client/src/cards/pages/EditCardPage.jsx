@@ -45,7 +45,6 @@ const EditCardPage = () => {
     
     const cardData = async () => { 
       const card = await getCard(params.id)
-      console.log(card);
       setCardId(card._id)
       rest.setData({
         title: card.title,

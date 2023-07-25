@@ -18,6 +18,9 @@ const LeftNavBar = () => {
         {user && user.isBusiness && (
           <NavItem label="My Cards" to={ROUTES.MY_CARDS} />
         )}
+        {user && user.isBusiness && (
+          <NavItem label="Favorites" to={ROUTES.FAV_CARDS} />
+        )}
       </Box>
     </Box>
   );

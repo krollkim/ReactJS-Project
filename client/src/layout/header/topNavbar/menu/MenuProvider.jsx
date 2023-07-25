@@ -25,7 +25,6 @@ export const MenuProvider = ({ children }) => {
   return (
     <>
       <MenuContext.Provider value={setIsOpen}>{children}</MenuContext.Provider>
-
       <Box
         ref={ancorRef}
         component="span"

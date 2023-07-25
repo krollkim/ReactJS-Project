@@ -85,7 +85,6 @@ const useCards = () => {
       setPending(true);
       const normalCard = normalizeCard(card);
       const data = await editCard(normalCard,cardId);
-      console.log(data);
       requestStatus(false, null, null, card);
       setSnack('success', 'your card has been UPDATED!');
       navigate(ROUTES.MY_CARDS)

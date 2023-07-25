@@ -17,7 +17,6 @@ const getCards = async () => {
 };
 
 const getMyCards = async userId => {
-  console.log(userId);
   if (DB === "MONGODB") {
     try {
       const cards = await Card.find({ user_id: userId });
